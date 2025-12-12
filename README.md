@@ -10,8 +10,7 @@
 <details>
   <summary>JSON , його можна імпортувати в Node-Red</summary>
 
-#### CSS
-
+```JSON
 [
 {
 "id": "37aa61a05580be90",
@@ -438,6 +437,7 @@
 "wires": [[]]
 }
 ]
+```
 
   </details>
 
