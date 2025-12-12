@@ -1,5 +1,6 @@
 <details>
 <summary>Завдання 1</summary>
+
 [Посилання на скріншот](https://i.ibb.co/pvKNfntM/Screenshot-182.png)
 
 <details>
