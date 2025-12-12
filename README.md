@@ -2,13 +2,12 @@
 <summary>Завдання 1</summary>
 [Посилання на скріншот](https://i.ibb.co/pvKNfntM/Screenshot-182.png)
 
-  <details>
+<details>
   <summary>Скріншот схеми (локальний файл)</summary>
-  ![Схема](src/images/screenshot.png)
-  </details>
+  ![Схема]('./src/images/screenshot.png')
+</details>
 
-    <details>
-
+<details>
   <summary>JSON , його можна імпортувати в Node-Red</summary>
 
 #### CSS
