@@ -4,11 +4,13 @@
 
 <details>
   <summary>Скріншот схеми (локальний файл)</summary>
-  ![Схема]('./src/images/screenshot.png')
+
+![Схема](src/images/Screenshot.png)
+
 </details>
 
 <details>
-  <summary>JSON , його можна імпортувати в Node-Red</summary>
+  <summary>JSON схеми (його можна імпортувати в Node-Red)</summary>
 
 ```JSON
 [
@@ -446,6 +448,7 @@
 <details>
 <summary>Завдання 2</summary>
 
+```JavaScript
 function getTriangleValue(a, b, c) {
 const first = Number(a);
 const second = Number(b);
@@ -462,11 +465,14 @@ return -1;
 const p = (first + second + third) / 2;
 return Math.sqrt(p _ (p - first) _ (p - second) \* (p - third));
 }
+```
 
 </details>
 
 <details>
 <summary>Завдання 3</summary>
+
+```JavaScript
 function createRandomUser() {
   const statuses = ['vip', 'gold', 'usual'];
 
@@ -506,12 +512,14 @@ return orders[a.status] - orders[b.status];
 
 return users;
 }
+```
 
 </details>
 
 <details>
 <summary>Завдання 4</summary>
 
+```JavaScript
 function isNotEmptyArray(data) {
 if (Array.isArray(data) && data.length > 0) {
 return data;
@@ -519,6 +527,7 @@ return data;
 
 return false;
 }
+```
 
 </details>
 
@@ -529,6 +538,8 @@ return false;
 
 <details>
 <summary>Масив даних із викликами ботів</summary>
+
+```JavaScript
 const callBotsArr = [
   {
     sessionId: 'f4465250-1066-11eb-a1ba-333704aff6af',
@@ -579,10 +590,13 @@ const callBotsArr = [
     numderBot: 6,
   },
 ];
+```
+
 </details>
 
-#### HTML + inline styles
+#### HTML vs inline styles
 
+```HTML
 <section style="width: 80%; margin: 80px auto 0">
         <h2>CallBots</h2>
 
@@ -623,9 +637,11 @@ const callBotsArr = [
           <tbody id="tableBody"></tbody>
         </table>
       </section>
+```
 
-#### JS
+#### JavaScript
 
+```JavaScript
 const tableBody = document.getElementById('tableBody');
 const botFilter = document.getElementById('botFilter');
 const sortNumBtn = document.getElementById('sortNum');
@@ -679,6 +695,7 @@ renderTable(filteredBots);
 
 fillSelect();
 renderTable(filteredBots);
+```
 
 </details>
 
@@ -687,6 +704,8 @@ renderTable(filteredBots);
 
 <details>
 <summary>Масив даних діалогів та Масив даних із викликами ботів</summary>
+
+```JavaScript
 const sesInfoArr = [
   {
     sessionId: '74e40bf0-0fbd-11eb-8dcc-39ce21e9ded5',
@@ -759,10 +778,11 @@ numderBot: 6,
 },
 ];
 
+```
+
 </details>
 
-#### JS
-
+```JavaScript
 function getUnicData(data) {
 const result = {};
 
@@ -791,6 +811,7 @@ const session = sesInfoArr.find((item) => item.sessionId === bot.sessionId);
 
 return combinedData.sort((a, b) => b.time - a.time);
 }
+```
 
 </details>
 
@@ -799,6 +820,7 @@ return combinedData.sort((a, b) => b.time - a.time);
 
 #### SQL
 
+```SQL
 CREATE TABLE sesInfoArr (sessionId VARCHAR(50), channelId VARCHAR(50), companyId VARCHAR(20),
 ekbId VARCHAR(20));
 
@@ -824,6 +846,7 @@ SELECT \*
 FROM callBotsArr
 WHERE numderBot > 3
 ORDER BY numderBot ASC;
+```
 
 </details>
 
@@ -854,8 +877,9 @@ ORDER BY numderBot ASC;
 
 \*\*\*Для коректної роботи запитів попердньо потрібно налаштувати proxy в проекті
 
-#### JS
+#### JavaScript
 
+```JavaScript
 async function getCourse(url) {
 const res = await fetch(url);
 if (!res.ok) {
@@ -923,6 +947,7 @@ maxUSD: sortedByUSD[sortedByUSD.length - 1],
 },
 };
 }
+```
 
 </details>
 
