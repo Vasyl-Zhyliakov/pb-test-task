@@ -1,0 +1,426 @@
+[
+  {
+    "id": "37aa61a05580be90",
+    "type": "tab",
+    "label": "Поток 1",
+    "disabled": false,
+    "info": "",
+    "env": []
+  },
+  {
+    "id": "e507470033b7c9b2",
+    "type": "inject",
+    "z": "37aa61a05580be90",
+    "name": "Старт (картку вставлено у банкомат)",
+    "props": [
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "x": 170,
+    "y": 60,
+    "wires": [["a7706aa54461b951"]]
+  },
+  {
+    "id": "a7706aa54461b951",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Перевірка валідності картки",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 500,
+    "y": 60,
+    "wires": [["baaf724720cd10df"]]
+  },
+  {
+    "id": "baaf724720cd10df",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Карта валідна?",
+    "property": "cardValid",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 740,
+    "y": 60,
+    "wires": [["1f41b812441a1fa6"], ["c71a8e08e1ac17d9"]]
+  },
+  {
+    "id": "c71a8e08e1ac17d9",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Карта валідна, ввести PIN",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 160,
+    "y": 180,
+    "wires": [["bee484508e75926d"]]
+  },
+  {
+    "id": "1f41b812441a1fa6",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Карта не валідна. Завершення роботи",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1100,
+    "y": 40,
+    "wires": [[]]
+  },
+  {
+    "id": "bee484508e75926d",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Введення PIN",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 400,
+    "y": 180,
+    "wires": [["fa2b91bcdc0666d3"], ["1a4953cc173ba277"]]
+  },
+  {
+    "id": "fa2b91bcdc0666d3",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "PIN не правильний, збільшуємо лічильник спроб",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 730,
+    "y": 160,
+    "wires": [["5f61b9bc5c24b648"]]
+  },
+  {
+    "id": "5f61b9bc5c24b648",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Лічильник спроб > 3, блокування картки, завершення роботи",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1170,
+    "y": 140,
+    "wires": [[]]
+  },
+  {
+    "id": "1a4953cc173ba277",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Доступ до опції зняття готівки",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 170,
+    "y": 300,
+    "wires": [["155b5590b046f43e"]]
+  },
+  {
+    "id": "155b5590b046f43e",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Введення суми ",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 480,
+    "y": 300,
+    "wires": [["77ef95dfb71b053e"]]
+  },
+  {
+    "id": "77ef95dfb71b053e",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Перевірка коштів на рахунку і в банкоматі",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 790,
+    "y": 300,
+    "wires": [["e8da3504b4773c66"], ["341d72742ece81f0"]]
+  },
+  {
+    "id": "341d72742ece81f0",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Коштів достатньо, перевірка наявних купюр",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 220,
+    "y": 400,
+    "wires": [["70e8248fa9c30291"], ["3adc4b21a1f2fd99"]]
+  },
+  {
+    "id": "70e8248fa9c30291",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Немає необхідних купюр, відповідне повідомлення та повернення до вводу даних",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 920,
+    "y": 400,
+    "wires": [[]]
+  },
+  {
+    "id": "e8da3504b4773c66",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Коштів недостатньо, відповідне повідомлення та поверненя до введення суми",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1090,
+    "y": 240,
+    "wires": [[]]
+  },
+  {
+    "id": "3adc4b21a1f2fd99",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Списання коштів",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 130,
+    "y": 500,
+    "wires": [["7c348672a429b46b"]]
+  },
+  {
+    "id": "7c348672a429b46b",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Видача готівки",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 360,
+    "y": 500,
+    "wires": [["8bc5c6171ec2d096"]]
+  },
+  {
+    "id": "8bc5c6171ec2d096",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Видавати чек",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 560,
+    "y": 500,
+    "wires": [["a8177afea6d31f54"], ["508a4c4940f5ac24"]]
+  },
+  {
+    "id": "508a4c4940f5ac24",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Так. Друк чеку",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 540,
+    "y": 580,
+    "wires": [["a8177afea6d31f54"]]
+  },
+  {
+    "id": "a8177afea6d31f54",
+    "type": "switch",
+    "z": "37aa61a05580be90",
+    "name": "Продовжити роботу?",
+    "property": "payload",
+    "propertyType": "msg",
+    "rules": [
+      {
+        "t": "eq",
+        "v": "true",
+        "vt": "str"
+      },
+      {
+        "t": "eq",
+        "v": "false",
+        "vt": "str"
+      }
+    ],
+    "checkall": "true",
+    "repair": false,
+    "outputs": 2,
+    "x": 900,
+    "y": 580,
+    "wires": [["fdef78815ef4a573"], ["ede2d26742290fcc"]]
+  },
+  {
+    "id": "fdef78815ef4a573",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Якщо так - перехід до введення PIN",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 1190,
+    "y": 540,
+    "wires": [[]]
+  },
+  {
+    "id": "ede2d26742290fcc",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Якщо ні, завершення роботи",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 270,
+    "y": 680,
+    "wires": [["e0f8a07d0f430c68"]]
+  },
+  {
+    "id": "e0f8a07d0f430c68",
+    "type": "function",
+    "z": "37aa61a05580be90",
+    "name": "Повернення картки",
+    "func": "\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 600,
+    "y": 680,
+    "wires": [[]]
+  }
+]
