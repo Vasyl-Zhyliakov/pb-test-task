@@ -1,13 +1,17 @@
 async function getCourse(url) {
   const res = await fetch(url);
   if (!res.ok) {
-    throw new Error();
+    throw new Error('Failed to fetch');
   }
-  return res.json();
+
+  const dataWrapped = await res.json();
+  return JSON.parse(dataWrapped.contents);
 }
 
 async function getPastCourse(date) {
-  const pastUrl = `/api/p24api/exchange_rates?date=${date}`;
+  const pastUrl =
+    `https://api.allorigins.win/get?url=` +
+    `https://api.privatbank.ua/p24api/exchange_rates?date=${date}`;
   const pastData = await getCourse(pastUrl);
 
   const filteredData = pastData.exchangeRate.filter(
@@ -28,7 +32,9 @@ async function getPastCourse(date) {
 }
 
 async function getExchangeData() {
-  const todayUrl = '/api/p24api/pubinfo?exchange&coursid=5';
+  const todayUrl =
+    `https://api.allorigins.win/get?url=` +
+    'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5';
   const today = await getCourse(todayUrl);
   const preparedToday = {
     date: new Date().toLocaleDateString('uk-UA'),
