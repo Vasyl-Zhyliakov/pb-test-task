@@ -30,7 +30,7 @@ async function getCourse(url) {
 }
 
 async function getPastCourse(date) {
-  const pastUrl = `/api/p24api/exchange_rates?date=${date}`;
+  const pastUrl = `https://api.privatbank.ua/p24api/exchange_rates?date=${date}`;
   const pastData = await getCourse(pastUrl);
 
   const filteredData = pastData.exchangeRate.filter(
@@ -51,7 +51,7 @@ async function getPastCourse(date) {
 }
 
 async function getExchangeData() {
-  const todayUrl = '/api/p24api/pubinfo?exchange&coursid=5';
+  const todayUrl = 'https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5';
   const today = await getCourse(todayUrl);
   const preparedToday = {
     date: new Date().toLocaleDateString('uk-UA'),
