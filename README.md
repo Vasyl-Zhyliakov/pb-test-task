@@ -967,7 +967,7 @@ async function getExchangeData() {
   cd pb-test-task
 - Встановіть залежності (Переконайтесь що встановлено Node.js):
   npm install
-- ЗАпустіть сервер розробки:
+- Запустіть сервер розробки:
   npm run dev
 - В консолі ви побачите посилання на локальний сервер:
   http://localhost:5173
