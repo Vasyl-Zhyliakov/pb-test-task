@@ -36,7 +36,3 @@ function randomUserList() {
 
   return users;
 }
-
-const resultDiv = document.getElementById('result3');
-const result = JSON.stringify(randomUserList(), null, 2);
-resultDiv.textContent = result;

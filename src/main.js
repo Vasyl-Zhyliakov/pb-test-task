@@ -6,3 +6,23 @@ import './scripts/task4';
 import './scripts/task5';
 import './scripts/task6';
 import './scripts/task8';
+import './scripts/tasks';
+
+document.addEventListener('click', (e) => {
+  const button = e.target.closest('.copy-button');
+  if (!button) return;
+
+  const codeId = button.dataset.target;
+  const codeEl = document.getElementById(codeId);
+
+  if (!codeEl) return;
+
+  navigator.clipboard.writeText(codeEl.textContent).then(() => {
+    const originalText = button.textContent;
+    button.textContent = 'Скопійовано';
+
+    setTimeout(() => {
+      button.textContent = originalText;
+    }, 1000);
+  });
+});

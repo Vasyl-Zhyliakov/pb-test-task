@@ -1,0 +1,40 @@
+<section style="width: 80%; margin: 80px auto 0">
+  <h2>CallBots</h2>
+
+  <label>
+    Фільтр за botName:
+    <select id="botFilter" style="margin-bottom: 20px">
+      <option value="all">Всі</option>
+    </select>
+  </label>
+
+  <table class="table" style="border-collapse: collapse">
+    <thead>
+      <tr>
+        <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">sessionId</th>
+        <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">channelId</th>
+        <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">companyId</th>
+        <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">botName</th>
+        <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">time</th>
+        <th
+          id="sortNum"
+          style="
+            padding: 6px 20px 6px 10px;
+            border: 1px solid #000;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+          "
+        >
+          numderBot
+          <span
+            id="sortArrow"
+            style="position: absolute; top: 50%; transform: translateY(-50%); margin-left: 10px"
+            >↕</span
+          >
+        </th>
+      </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</section>

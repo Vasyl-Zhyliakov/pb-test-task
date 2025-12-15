@@ -98,7 +98,3 @@ function getCombinedData(sesInfoArr, callBotsArr) {
 
   return combinedData.sort((a, b) => b.time - a.time);
 }
-
-const resultDiv = document.getElementById('result6');
-const result = JSON.stringify(getCombinedData(sesInfoArr, callBotsArr), null, 2);
-resultDiv.textContent = result;

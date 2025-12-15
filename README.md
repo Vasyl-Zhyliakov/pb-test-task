@@ -1,3 +1,5 @@
+### [Demo](https://vasyl-zhyliakov.github.io/pb-test-task/)
+
 <details>
 <summary>Завдання 1</summary>
 
@@ -533,9 +535,6 @@ function isNotEmptyArray(data) {
 
 <details>
 <summary>Завдання 5</summary>
-
-[Demo](https://vasyl-zhyliakov.github.io/pb-test-task/)
-
 <details>
 <summary>Масив даних із викликами ботів</summary>
 
@@ -624,13 +623,22 @@ const callBotsArr = [
         <th
           id="sortNum"
           style="
-            padding: 6px 10px;
+            padding: 6px 20px 6px 10px;
             border: 1px solid #000;
             text-align: center;
             cursor: pointer;
+            position: relative;
           "
         >
           numderBot
+          <span
+            id="sortArrow"
+            style="
+              position: absolute;
+              margin-left: 10px
+            "
+            >↕</span
+          >
         </th>
       </tr>
     </thead>
@@ -646,6 +654,7 @@ const callBotsArr = [
 const tableBody = document.getElementById('tableBody');
 const botFilter = document.getElementById('botFilter');
 const sortNumBtn = document.getElementById('sortNum');
+const sortArrow = document.getElementById('sortArrow');
 
 let filteredBots = [...callBotsArr];
 const sortedAsc = [...callBotsArr].sort((a, b) => a.numderBot - b.numderBot);
@@ -691,6 +700,7 @@ botFilter.addEventListener('change', () => {
 
 sortNumBtn.addEventListener('click', () => {
   filteredBots.sort((a, b) => (sortAsc ? a.numderBot - b.numderBot : b.numderBot - a.numderBot));
+  sortArrow.textContent = sortAsc ? '↓' : '↑';
   sortAsc = !sortAsc;
   renderTable(filteredBots);
 });
@@ -864,7 +874,7 @@ ORDER BY numderBot ASC;
 
 3. Створюємо допоміжну функцію getPastCourse(date). Вона отримує архівний курс за вказаний день, відфільтровує в ньому тільки курси 'USD' та 'EUR' та повертає у форматі, подібному до preparedToday.
 
-4. За допомогою циклу знаходимо дати попередніх шести днів. Для кожної з дат За допомогою getPastCourse(date) дотримуємо дані курсів обміну та наповнюємо масив statistics
+4. За допомогою циклу знаходимо дати попередніх шести днів. Для кожної з дат, за допомогою getPastCourse(date), отримуємо дані курсів обміну та наповнюємо масив statistics
 
 5. Опціонально сортуємо копію масиву statistics за необхідними параметрами (я обрав курс продажу 'USD') за зростанням та зберігаємо в sortedByUSD.
 
@@ -875,7 +885,7 @@ ORDER BY numderBot ASC;
    - minUSD - перший елемент sortedByUSD (мінімальний курс продажу USD)
    - maxUSD - останній елемент sortedByUSD (максимальний курс продажу USD)
 
-\*\*\*Для коректної роботи запитів попердньо потрібно налаштувати proxy в проекті. В цьому проекті proxy вже налаштовано, тому і перевіряти роботу коду краще в ньому, а не в компіляторах коду
+\*\*\*Для коректної роботи запитів попередньо потрібно налаштувати proxy в проекті. В цьому проекті proxy вже налаштовано, тому і перевіряти роботу коду краще в ньому, а не в компіляторах коду
 
 #### JavaScript
 
