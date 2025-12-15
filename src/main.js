@@ -26,3 +26,5 @@ document.addEventListener('click', (e) => {
     }, 1000);
   });
 });
+
+console.log('BASE_URL =', import.meta.env.BASE_URL);
