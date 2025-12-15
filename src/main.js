@@ -28,3 +28,4 @@ document.addEventListener('click', (e) => {
 });
 
 console.log('BASE_URL =', import.meta.env.BASE_URL);
+console.log('Тестовий запит');
