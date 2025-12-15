@@ -1,55 +1,265 @@
 <!doctype html>
-<html lang="en">
+<html lang="ua">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/pb-test-task/assets/logo-CA7GDt_U.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Test task</title>
-    <script type="module" crossorigin src="/pb-test-task/assets/index-B--H13PU.js"></script>
-    <link rel="stylesheet" crossorigin href="/pb-test-task/assets/index-tn0RQdqM.css">
+    <script type="module" crossorigin src="/pb-test-task/assets/index-B67LPLFr.js"></script>
+    <link rel="stylesheet" crossorigin href="/pb-test-task/assets/index-BffHvWhl.css">
   </head>
   <body>
-    <main>
-      <section style="width: 80%; margin: 80px auto 0">
-        <h2>CallBots</h2>
+    <main class="main">
+      <details class="task1">
+        <summary class="summary">Завдання 1</summary>
+        <div class="task__content">
+          <a href="https://i.ibb.co/pvKNfntM/Screenshot-182.png" target="_blank"
+            >Посилання на скріншот</a
+          >
 
-        <label>
-          Фільтр за botName:
-          <select id="botFilter" style="margin-bottom: 20px">
-            <option value="all">Всі</option>
-          </select>
-        </label>
+          <details>
+            <summary class="summary">Скріншот схеми (локальний файл)</summary>
 
-        <table class="table" style="border-collapse: collapse">
-          <thead>
-            <tr>
-              <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
-                sessionId
-              </th>
-              <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
-                channelId
-              </th>
-              <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
-                companyId
-              </th>
-              <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">botName</th>
-              <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">time</th>
-              <th
-                id="sortNum"
-                style="
-                  padding: 6px 10px;
-                  border: 1px solid #000;
-                  text-align: center;
-                  cursor: pointer;
-                "
-              >
-                numderBot
-              </th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </section>
+            <img src="/pb-test-task/assets/Screenshot-BDEoceKH.png" alt="Зображення схеми" />
+          </details>
+
+          <details>
+            <summary class="summary">JSON схеми (його можна імпортувати в Node-Red)</summary>
+
+            <div class="code-block">
+              <button class="copy-button" data-target="task1Code">Скопіювати код</button>
+              <pre><code id="task1Code"></code></pre>
+            </div>
+          </details>
+        </div>
+      </details>
+
+      <details class="task2">
+        <summary>Завдання 2</summary>
+        <div class="task__content">
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task2Code">Скопіювати код</button>
+            <pre><code id="task2Code"></code></pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="task3">
+        <summary>Завдання 3</summary>
+        <div class="task__content">
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task3Code">Скопіювати код</button>
+            <pre><code id="task3Code"></code></pre>
+          </div>
+          <h4>Результат виконання функції:</h4>
+          <div id="result3" class="result"></div>
+        </div>
+      </details>
+
+      <details class="task4">
+        <summary>Завдання 4</summary>
+        <div class="task__content">
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task4Code">Скопіювати код</button>
+            <pre><code id="task4Code"></code></pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="task5">
+        <summary>Завдання 5</summary>
+        <div class="task__content">
+          <h4>HTML (додано інлайнові стилі для більш зручного копіювання в компілятори коду)</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task5CodeHTML">Скопіювати код</button>
+            <pre><code id="task5CodeHTML"></code></pre>
+          </div>
+
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task5CodeJS">Скопіювати код</button>
+            <pre><code id="task5CodeJS"></code></pre>
+          </div>
+
+          <h4>Результат:</h4>
+          <section style="width: 80%; margin: 80px auto 0">
+            <h2>CallBots</h2>
+
+            <label>
+              Фільтр за botName:
+              <select id="botFilter" style="margin-bottom: 20px">
+                <option value="all">Всі</option>
+              </select>
+            </label>
+
+            <table class="table" style="border-collapse: collapse">
+              <thead>
+                <tr>
+                  <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
+                    sessionId
+                  </th>
+                  <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
+                    channelId
+                  </th>
+                  <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
+                    companyId
+                  </th>
+                  <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
+                    botName
+                  </th>
+                  <th style="padding: 6px 10px; border: 1px solid #000; text-align: center">
+                    time
+                  </th>
+                  <th
+                    id="sortNum"
+                    style="
+                      padding: 6px 20px 6px 10px;
+                      border: 1px solid #000;
+                      text-align: center;
+                      cursor: pointer;
+                      position: relative;
+                    "
+                  >
+                    numderBot
+                    <span id="sortArrow" style="position: absolute; margin-left: 10px">↕</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </section>
+        </div>
+      </details>
+
+      <details class="task6">
+        <summary>Завдання 6</summary>
+        <div class="task__content">
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task6Code">Скопіювати код</button>
+            <pre><code id="task6Code"></code></pre>
+          </div>
+          <h4>Результат виконання функції:</h4>
+          <div id="result6" class="result"></div>
+        </div>
+      </details>
+
+      <details class="task7">
+        <summary>Завдання 7</summary>
+        <div class="task__content">
+          <h4>SQL</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task7Code">Скопіювати код</button>
+            <pre><code id="task7Code"></code></pre>
+          </div>
+        </div>
+      </details>
+
+      <details class="task8">
+        <summary>Завдання 8</summary>
+        <div class="task__content">
+          <h4>Опис роботи функції</h4>
+          <p>
+            <strong>*Важливо:</strong><br />
+            Для коректної роботи HTTP-запитів необхідно попередньо налаштувати
+            <code>proxy</code> у проєкті. У даному проєкті <code>proxy</code> вже налаштовано, тому
+            перевіряти роботу коду рекомендовано саме тут, а не в онлайн-компіляторах.
+          </p>
+
+          <ol>
+            <li>
+              <p>
+                1. Створюємо функцію <code>getCourse(url)</code>, яка робить запит до API за
+                вказанною адресою.
+              </p>
+              <ul>
+                <li>- Якщо відповідь успішна - повертаємо отримані дані у форматі JSON.</li>
+                <li>- Якщо запит неуспішний - викликаємо помилку.</li>
+              </ul>
+            </li>
+
+            <li>
+              <p>
+                2.У функції <code>getExchangeData()</code> отримуємо дані курсів валют на
+                сьогодніній день за допомогою <code>getCourse(todayUrl)</code>. До отриманих даних
+                додаємо дату та формуємо об’єкт <code>preparedToday</code>. Цей об’єкт додається у
+                масив <code>statistics</code>, який буде містити дані за кожен день тижня.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                3. Створюємо допоміжну функцію <code>getPastCourse(date)</code>. Вона отримує
+                архівний курс за вказаний день, відфільтровує в ньому тільки курси 'USD' та 'EUR' та
+                повертає у форматі, подібному до <code>preparedToday</code>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                4. За допомогою циклу знаходимо дати попередніх шести днів. Для кожної з дат, за
+                допомогою <code>getPastCourse(date)</code>, отримуємо дані курсів обміну та
+                наповнюємо масив
+                <code>statistics</code>
+              </p>
+            </li>
+
+            <li>
+              <p>
+                5. Опціонально сортуємо копію масиву <code>statistics</code> за необхідними
+                параметрами (я обрав курс продажу 'USD') за зростанням та зберігаємо в
+                <code>sortedByUSD</code>.
+              </p>
+            </li>
+
+            <li>
+              <p>
+                6. Готуємо і повертаємо дані в результаті виконання функції
+                <code>getExchangeData()</code>:
+              </p>
+              <ul>
+                <li>
+                  6.1 <strong>today</strong> - масив курсів валют з першого елементу
+                  <code>statistics</code>
+                </li>
+                <li>
+                  6.2 <strong>yesterday</strong> - масив курсів валют з другого елементу
+                  <code>statistics</code>
+                </li>
+                <li>
+                  6.3 <strong>weekStatistics</strong> - тижнева вибірка:
+                  <ul>
+                    <li>
+                      - <code>minUSD</code> - перший елемент <code>sortedByUSD </code>(мінімальний
+                      курс продажу USD)
+                    </li>
+                    <li>
+                      - <code>maxUSD</code> - останній елемент
+                      <code>sortedByUSD</code> (максимальний курс продажу USD)
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ol>
+          <h4>JavaScript</h4>
+          <div class="code-block">
+            <button class="copy-button" data-target="task8Code">Скопіювати код</button>
+            <pre><code id="task8Code"></code></pre>
+          </div>
+          <h4>Результат виконання функції:</h4>
+          <div id="result8" class="result"></div>
+        </div>
+      </details>
     </main>
   </body>
 </html>
