@@ -1,53 +1,21 @@
-fetch('tasks/task1.json')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task1Code').textContent = code;
-  });
+const tasks = [
+  ['task1.json', 'task1Code'],
+  ['task2.js', 'task2Code'],
+  ['task3.js', 'task3Code'],
+  ['task4.js', 'task4Code'],
+  ['task5.html', 'task5CodeHTML'],
+  ['task5.js', 'task5CodeJS'],
+  ['task6.js', 'task6Code'],
+  ['task7.sql', 'task7Code'],
+  ['task8.js', 'task8Code'],
+];
 
-fetch('tasks/task2.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task2Code').textContent = code;
-  });
-
-fetch('tasks/task3.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task3Code').textContent = code;
-  });
-
-fetch('tasks/task4.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task4Code').textContent = code;
-  });
-
-fetch('tasks/task5.html')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task5CodeHTML').textContent = code;
-  });
-
-fetch('tasks/task5.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task5CodeJS').textContent = code;
-  });
-
-fetch('tasks/task6.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task6Code').textContent = code;
-  });
-
-fetch('tasks/task7.sql')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task7Code').textContent = code;
-  });
-
-fetch('tasks/task8.js')
-  .then((response) => response.text())
-  .then((code) => {
-    document.getElementById('task8Code').textContent = code;
-  });
+tasks.forEach(([file, targetId]) => {
+  fetch(`${import.meta.env.BASE_URL}tasks/${file}`)
+    .then((res) => res.text())
+    .then((code) => {
+      const el = document.getElementById(targetId);
+      if (el) el.textContent = code;
+    })
+    .catch((err) => console.error(`Error loading ${file}`, err));
+});
