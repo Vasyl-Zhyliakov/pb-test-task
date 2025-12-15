@@ -11,7 +11,7 @@ const tasks = [
 ];
 
 tasks.forEach(([file, targetId]) => {
-  fetch(`${import.meta.env.BASE_URL}tasks/${file}`)
+  fetch(`/pb-test-task/tasks/${file}`)
     .then((res) => res.text())
     .then((code) => {
       const el = document.getElementById(targetId);
